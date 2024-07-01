@@ -19,9 +19,6 @@ import time
 
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
-# name of the CSV file we want to use
-csv_file_name = 'scraped_prospects.csv'
-
 def write_results_to_csv(results, filename):
     with open(filename, 'a', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
