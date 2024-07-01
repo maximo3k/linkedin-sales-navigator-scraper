@@ -1,10 +1,6 @@
-import re
 import csv
 import json
-from datetime import datetime
-from bs4 import BeautifulSoup
 from selenium import webdriver
-from selenium.webdriver import ActionChains
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -26,9 +22,6 @@ chrome_options.add_argument("--start-maximized")
 user_data_dir = r'C:\Users\Max\AppData\Local\Google\Chrome\User Data\scraper_profile'
 chrome_options.add_argument(f"--user-data-dir={user_data_dir}")
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
-i = 0
-p = 0
-
 
 # name of the CSV file we want to use
 csv_file_name = 'scraped_prospects.csv'
@@ -118,7 +111,6 @@ def scroll_extract(driver, items):
                     'person_link' : person_link,
                 })
 
-
             # Wait for 1 second to allow any dynamic content to load
             time.sleep(1)
         except Exception as e:
@@ -167,7 +159,6 @@ def scrape_results_page(driver):
 
     return
 
-
 with open('config.json', 'r') as config_file:
     config = json.load(config_file)
 
@@ -176,6 +167,5 @@ login_to_site(driver, config)
 scrape_results_page(driver)
 
 time.sleep(10)
-
 
 driver.quit()
