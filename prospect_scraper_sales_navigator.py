@@ -17,10 +17,6 @@ import time
 # Put the time between actions high. Run the script and when the chrome window opens, log in. There are issues with Chrome profiles. Need to log in manually.
 # Then you can cancel the application and finetune the timers, according to your Internet Connection
 
-chrome_options = Options()
-chrome_options.add_argument("--start-maximized")
-user_data_dir = r'C:\Users\Max\AppData\Local\Google\Chrome\User Data\scraper_profile'
-chrome_options.add_argument(f"--user-data-dir={user_data_dir}")
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
 # name of the CSV file we want to use
